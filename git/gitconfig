@@ -1,0 +1,29 @@
+[color]
+	ui = auto
+[alias]
+	st = status -s
+	ci = commit
+	cim = commit -m
+	ciam = commit -a -m
+	br = branch
+	co = checkout
+	df = diff
+	lg = log -p
+	au = add -u
+	sup = !git svn fetch && git svn rebase -l
+	sci = svn dcommit
+	history = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    l = log --graph --date=short
+    changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+    changelog = log --pretty=format:\" * %s\"
+[branch]
+	autosetuprebase = always
+[merge]
+	tool = extMerge
+[mergetool "extMerge"]
+	cmd = p4merge.sh \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	trustExitCode = false
+[push]
+    # 'git push' will push the current branch to its tracking branch
+    # the usual default is to push all branches
+    default = tracking
