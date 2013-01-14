@@ -7,3 +7,6 @@
 [submodule "vim/bundle/change-inside-surroundings.vim"]
 	path = vim/bundle/change-inside-surroundings.vim
 	url = https://github.com/briandoll/change-inside-surroundings.vim.git
+[submodule "vim/bundle/vim-powerline"]
+	path = vim/bundle/vim-powerline
+	url = https://github.com/skwp/vim-powerline.git
