@@ -4,3 +4,6 @@
 [submodule "dircolors"]
 	path = dircolors
 	url = https://github.com/seebi/dircolors-solarized
+[submodule "vim/bundle/change-inside-surroundings.vim"]
+	path = vim/bundle/change-inside-surroundings.vim
+	url = https://github.com/briandoll/change-inside-surroundings.vim.git
