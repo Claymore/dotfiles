@@ -60,12 +60,9 @@ set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
 " Appearance
-set t_Co=256
 set background=dark
-if !has('gui_running')
-    let g:solarized_termcolors=&t_Co
-    let g:solarized_termtrans=1
-endif
+let g:solarized_termcolors=&t_Co
+let g:solarized_termtrans=1
 colorscheme solarized
 
 " Powerline
