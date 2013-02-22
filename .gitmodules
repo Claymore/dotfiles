@@ -13,3 +13,6 @@
 [submodule "gnome-terminal/gnome-terminal-colors-solarized"]
 	path = gnome-terminal/gnome-terminal-colors-solarized
 	url = git://github.com/sigurdga/gnome-terminal-colors-solarized.git
+[submodule "vim/bundle/vim-pathogen"]
+	path = vim/bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
