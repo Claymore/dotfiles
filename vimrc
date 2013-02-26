@@ -53,8 +53,9 @@ runtime! macros/matchit.vim
 " }}}
 
 " Custom mappings {{{
-set pastetoggle=<F2>
-nmap <leader>l :set list!<CR>
+nnoremap [op :set paste<CR>
+nnoremap ]op :set nopaste<CR>
+nnoremap cop :set paste!<CR>
 " }}}
 
 " Plugins {{{
