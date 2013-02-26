@@ -59,23 +59,17 @@ nmap <leader>l :set list!<CR>
 
 " Plugins {{{
 " Use pathogen to install vim plugins
-if filereadable("bundle/vim-pathogen/autoload/pathogen.vim")
-    runtime bundle/vim-pathogen/autoload/pathogen.vim
-    call pathogen#infect()
-    call pathogen#helptags()
-endif
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+call pathogen#helptags()
 
 " Color scheme
-if filereadable("bundle/vim-colors-solarized/colors/solarized.vim")
-    let g:solarized_termcolors=&t_Co
-    let g:solarized_termtrans=1
-    colorscheme solarized
-endif
+let g:solarized_termcolors=&t_Co
+let g:solarized_termtrans=1
+colorscheme solarized
 
 " Powerline
-if filereadable("bundle/vim-powerline/autoload/Pl.vim")
-    let g:Powerline_symbols='fancy'
-    let g:Powerline_theme='skwp'
-    let g:Powerline_colorscheme='skwp'
-endif
+let g:Powerline_symbols='fancy'
+let g:Powerline_theme='skwp'
+let g:Powerline_colorscheme='skwp'
 " }}}
