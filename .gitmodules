@@ -34,3 +34,6 @@
 [submodule "vim/bundle/vim-golang"]
 	path = vim/bundle/vim-golang
 	url = https://github.com/jnwhiteh/vim-golang.git
+[submodule "vim/bundle/UltiSnips"]
+	path = vim/bundle/UltiSnips
+	url = https://github.com/vim-scripts/UltiSnips.git
