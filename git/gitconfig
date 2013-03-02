@@ -28,4 +28,4 @@
     # the usual default is to push all branches
     default = tracking
 [core]
-    excludefile = ~/.gitignore
+	excludesfile = ~/.gitignore
