@@ -10,7 +10,7 @@ set visualbell                  "No sounds
 
 syntax on " Turn syntax highlighting on
 
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:¬,trail:·
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
 set background=dark
