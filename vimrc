@@ -80,3 +80,5 @@ autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
 autocmd FileType go set makeprg=go\ build
 autocmd FileType go set errorformat=%f:%l:%m
 " }}}
+
+au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
