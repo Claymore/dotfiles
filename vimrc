@@ -44,6 +44,7 @@ filetype plugin indent on
 
 " Core settings: Search {{{
 set incsearch        "Find the next match as we type the search
+set ignorecase
 set smartcase        "Case insensitive searches become sensitive with capitals
 set hlsearch         "Hilight searches by default
 " }}}
