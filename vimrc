@@ -49,6 +49,12 @@ set smartcase        "Case insensitive searches become sensitive with capitals
 set hlsearch         "Hilight searches by default
 " }}}
 
+" Core settings: Scrolling {{{
+set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1
+" }}}
+
 " Macros {{{
 runtime! macros/matchit.vim
 " }}}
