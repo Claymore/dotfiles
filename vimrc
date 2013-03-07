@@ -1,5 +1,7 @@
 " vim:fdm=marker
 set nocompatible
+set fileencoding=utf-8
+set encoding=utf-8
 
 " Core settings: Appearance {{{
 set number                      "Line numbers are good
@@ -13,8 +15,22 @@ syntax on " Turn syntax highlighting on
 set listchars=tab:▸\ ,eol:¬,trail:·
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
-set background=dark
 set laststatus=2 "always show the statusline
+
+if has("gui_running")
+    set guioptions-=m
+    set guioptions-=T
+    set guioptions-=r
+    set background=light
+else
+    set background=dark
+endif
+
+if has("win32")
+    set guifont=Consolas:h14:cRUSSIAN
+    language English_US
+    set langmenu=English_US
+endif
 " }}}
 
 " Core settings: Editor {{{
@@ -26,9 +42,15 @@ set viminfo='100,f1  "Save up to 100 marks, enable capital marks
 
 " Keep undo history across sessions, by storing in file.
 
-silent !mkdir ~/.vim/backups > /dev/null 2>&1
-set undodir=~/.vim/backups
-set undofile
+if !has("win32")
+    silent !mkdir ~/.vim/backups > /dev/null 2>&1
+    set undodir=~/.vim/backups
+    set undofile
+else
+    set undodir=$HOME\vimfiles\backups
+    set undofile
+    set directory=$HOME\vimfiles\tmp,.
+endif
 " }}}
 
 " Core settings: Identation {{{
@@ -68,6 +90,13 @@ nnoremap cop :set paste!<CR>
 " Plugins {{{
 " Use pathogen to install vim plugins
 runtime bundle/vim-pathogen/autoload/pathogen.vim
+
+let g:pathogen_disabled = []
+if !has('python')
+    call add(g:pathogen_disabled, 'UltiSnips')
+    call add(g:pathogen_disabled, 'LycosaExplorer')
+endif
+
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -77,7 +106,9 @@ let g:solarized_termtrans=1
 colorscheme solarized
 
 " Powerline
-let g:Powerline_symbols='fancy'
+if !has("win32")
+    let g:Powerline_symbols='fancy'
+endif
 let g:Powerline_theme='skwp'
 let g:Powerline_colorscheme='skwp'
 " }}}
