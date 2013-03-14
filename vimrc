@@ -2,6 +2,7 @@
 set nocompatible
 set fileencoding=utf-8
 set encoding=utf-8
+set fileformats=unix,dos
 
 " Core settings: Appearance {{{
 set number                      "Line numbers are good
