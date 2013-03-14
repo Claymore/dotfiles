@@ -82,9 +82,6 @@ runtime! macros/matchit.vim
 " }}}
 
 " Custom mappings {{{
-nnoremap [op :set paste<CR>
-nnoremap ]op :set nopaste<CR>
-nnoremap cop :set paste!<CR>
 let mapleader = "\<Space>"
 " }}}
 
