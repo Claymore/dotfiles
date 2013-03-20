@@ -95,7 +95,6 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 let g:pathogen_disabled = []
 if !has('python')
     call add(g:pathogen_disabled, 'UltiSnips')
-    call add(g:pathogen_disabled, 'LycosaExplorer')
 endif
 
 if !has('ruby')
