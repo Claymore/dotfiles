@@ -37,6 +37,3 @@
 [submodule "vim/bundle/UltiSnips"]
 	path = vim/bundle/UltiSnips
 	url = https://github.com/vim-scripts/UltiSnips.git
-[submodule "vim/bundle/interactive-replace"]
-	path = vim/bundle/interactive-replace
-	url = https://github.com/hwrod/interactive-replace.git
