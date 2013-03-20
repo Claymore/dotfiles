@@ -28,9 +28,6 @@
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/LycosaExplorer"]
-	path = vim/bundle/LycosaExplorer
-	url = https://github.com/vim-scripts/LycosaExplorer.git
 [submodule "vim/bundle/vim-golang"]
 	path = vim/bundle/vim-golang
 	url = https://github.com/jnwhiteh/vim-golang.git
