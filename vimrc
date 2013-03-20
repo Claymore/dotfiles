@@ -128,6 +128,7 @@ map <Leader>rs :VimuxInterruptRunner<CR>
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_match_window_bottom = 0 " Show the match window at the top of the screen
 let g:ctrlp_max_height = 6
+let g:ctrlp_extensions = ['line', 'buffertag', 'tag', 'dir']
 " }}}
 
 " Programming languages: Go {{{
