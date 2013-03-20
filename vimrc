@@ -132,6 +132,10 @@ let g:ctrlp_extensions = ['line', 'buffertag', 'tag', 'dir']
 
 " Syntastic
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['go'], 'passive_filetypes': [] }
+
+" Fix Syntastic sign column colors
+highlight! link SyntasticErrorSign DiffDelete
+highlight! link SyntasticWarningSign DiffChange
 " }}}
 
 " Programming languages: Go {{{
