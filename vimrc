@@ -96,6 +96,10 @@ if !has('python')
     call add(g:pathogen_disabled, 'LycosaExplorer')
 endif
 
+if !has('ruby')
+    call add(g:pathogen_disabled, 'vimux')
+endif
+
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -110,6 +114,14 @@ if !has("win32")
 endif
 let g:Powerline_theme='skwp'
 let g:Powerline_colorscheme='skwp'
+
+" Vimux
+map <Leader>rp :VimuxPromptCommand<CR>
+map <Leader>rl :VimuxRunLastCommand<CR>
+map <Leader>ri :VimuxInspectRunner<CR>
+map <Leader>rx :VimuxClosePanes<CR>
+map <Leader>rq :VimuxCloseRunner<CR>
+map <Leader>rs :VimuxInterruptRunner<CR>
 " }}}
 
 " Programming languages: Go {{{
