@@ -47,10 +47,12 @@ if !has("win32")
     silent !mkdir ~/.vim/backups > /dev/null 2>&1
     set undodir=~/.vim/backups
     set undofile
+    set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
 else
     set undodir=$HOME\vimfiles\backups
     set undofile
     set directory=$HOME\vimfiles\tmp,.
+    set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
 endif
 " }}}
 
@@ -122,6 +124,9 @@ map <Leader>ri :VimuxInspectRunner<CR>
 map <Leader>rx :VimuxClosePanes<CR>
 map <Leader>rq :VimuxCloseRunner<CR>
 map <Leader>rs :VimuxInterruptRunner<CR>
+
+" Ctrlp.vim
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " }}}
 
 " Programming languages: Go {{{
