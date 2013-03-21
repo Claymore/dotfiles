@@ -49,3 +49,6 @@
 [submodule "vim/bundle/YouCompleteMe"]
 	path = vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "vim/bundle/vim-ref"]
+	path = vim/bundle/vim-ref
+	url = https://github.com/thinca/vim-ref.git
