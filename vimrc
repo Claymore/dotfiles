@@ -101,6 +101,10 @@ if !has('ruby')
     call add(g:pathogen_disabled, 'vimux')
 endif
 
+if version < 703 || !has('python') || !has('patch584')
+    call add(g:pathogen_disabled, 'YouCompleteMe')
+endif
+
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -137,6 +141,9 @@ let g:syntastic_auto_loc_list=1 " Automatically open and close the error window
 " Fix Syntastic sign column colors
 highlight! link SyntasticErrorSign DiffDelete
 highlight! link SyntasticWarningSign DiffChange
+
+" YouCompleteMe
+let g:ycm_confirm_extra_conf = 0 " Do not ask for confirmation
 " }}}
 
 " Programming languages: Go {{{
