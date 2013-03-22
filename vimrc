@@ -99,6 +99,7 @@ endif
 
 if !has('ruby')
     call add(g:pathogen_disabled, 'vimux')
+    call add(g:pathogen_disabled, 'command-t')
 endif
 
 if version < 703 || !has('python') || !has('patch584')
@@ -128,11 +129,11 @@ map <Leader>rx :VimuxClosePanes<CR>
 map <Leader>rq :VimuxCloseRunner<CR>
 map <Leader>rs :VimuxInterruptRunner<CR>
 
-" Ctrlp.vim
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_match_window_bottom = 0 " Show the match window at the top of the screen
-let g:ctrlp_max_height = 6
-let g:ctrlp_extensions = ['line', 'buffertag', 'tag', 'dir']
+" Command-T
+let g:CommandTMaxHeight = 6
+let g:CommandTMaxCachedDirectories = 4
+let g:CommandTMatchWindowAtTop = 1
+let g:CommandTCancelMap='<Esc>'
 
 " Syntastic
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['go', 'cpp'], 'passive_filetypes': [] }
