@@ -86,6 +86,10 @@ runtime! macros/matchit.vim
 
 " Custom mappings {{{
 let mapleader = "\<Space>"
+" Use CTRL-S for saving, also in Insert mode
+noremap <C-S>		:update<CR>
+vnoremap <C-S>		<C-C>:update<CR>
+inoremap <C-S>		<C-O>:update<CR>
 " }}}
 
 " Plugins {{{
