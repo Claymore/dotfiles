@@ -137,7 +137,6 @@ let g:CommandTCancelMap='<Esc>'
 
 " Syntastic
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['go', 'cpp'], 'passive_filetypes': [] }
-let g:syntastic_auto_loc_list = 1 " Automatically open and close the error window
 let g:syntastic_loc_list_height = 6
 
 " Fix Syntastic sign column colors
