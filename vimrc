@@ -90,6 +90,10 @@ let mapleader = "\<Space>"
 noremap <C-S>		:update<CR>
 vnoremap <C-S>		<C-C>:update<CR>
 inoremap <C-S>		<C-O>:update<CR>
+" Fugitive mappings
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>ga :Gwrite<CR>
 " }}}
 
 " Plugins {{{
