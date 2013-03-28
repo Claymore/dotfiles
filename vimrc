@@ -1,10 +1,10 @@
 " vim:fdm=marker
 set nocompatible
-set fileencoding=utf-8
-set encoding=utf-8
-set fileformats=unix,dos
 
 " Core settings: Appearance {{{
+set updatetime=1000
+set lazyredraw
+set ttyfast
 set number                      "Line numbers are good
 set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
@@ -35,6 +35,9 @@ endif
 " }}}
 
 " Core settings: Editor {{{
+set fileencoding=utf-8
+set encoding=utf-8
+set fileformats=unix,dos
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set autoread                    "Reload files changed outside vim
@@ -163,13 +166,53 @@ autocmd FileType go set errorformat=%f:%l:%m
 
 au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
 
-" {{{ Weaker version of Hard Mode
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+" {{{ Hard Mode
+set mouse=""
+nnoremap <PageUp> <NOP>
+nnoremap <PageDown> <NOP>
+inoremap <PageUp> <NOP>
+inoremap <PageDown> <NOP>
+vnoremap <PageUp> <NOP>
+vnoremap <PageDown> <NOP>
+noremap <MiddleMouse> <NOP>
+noremap <MouseUp> <NOP>
+noremap <MouseDown> <NOP>
+nnoremap <UP> <NOP>
+nnoremap <DOWN> <NOP>
+nnoremap <LEFT> <NOP>
+nnoremap <RIGHT> <NOP>
+inoremap <UP> <NOP>
+inoremap <DOWN> <NOP>
+inoremap <LEFT> <NOP>
+inoremap <RIGHT> <NOP>
+vnoremap <UP> <NOP>
+vnoremap <DOWN> <NOP>
+vnoremap <LEFT> <NOP>
+vnoremap <RIGHT> <NOP>
+
+" No repetitive HJKL {
+" Author: Barry Arthur <bairui @ #vim / freenode>
+let g:cursor_moving = 0
+
+function! TrapMovementKeys(key)
+    augroup CursorMoving
+        autocmd!
+        autocmd CursorMoved * let g:cursor_moving += 1
+    augroup END
+    if g:cursor_moving <= 2
+        return a:key
+    else
+        return ''
+    endif
+endfunction
+
+nnoremap <expr> h TrapMovementKeys('h')
+nnoremap <expr> j TrapMovementKeys('j')
+nnoremap <expr> k TrapMovementKeys('k')
+nnoremap <expr> l TrapMovementKeys('l')
+
+augroup CursorMovingOff
+    autocmd!
+    autocmd CursorHold * let g:cursor_moving = 0
+augroup END
 " }}}
