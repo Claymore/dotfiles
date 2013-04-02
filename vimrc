@@ -104,6 +104,8 @@ nmap <leader>ga :Gwrite<CR>
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 
 let g:pathogen_disabled = []
+call add(g:pathogen_disabled, 'syntastic')
+call add(g:pathogen_disabled, 'YouCompleteMe')
 if !has('python')
     call add(g:pathogen_disabled, 'UltiSnips')
 endif
