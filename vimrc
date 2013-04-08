@@ -97,6 +97,8 @@ inoremap <C-S>		<C-O>:update<CR>
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>ga :Gwrite<CR>
+" A mapping for :make
+nmap <leader>m :make<CR>
 " }}}
 
 " Plugins {{{
@@ -141,6 +143,8 @@ map <Leader>ri :VimuxInspectRunner<CR>
 map <Leader>rx :VimuxClosePanes<CR>
 map <Leader>rq :VimuxCloseRunner<CR>
 map <Leader>rs :VimuxInterruptRunner<CR>
+map <Leader>rm :call VimuxRunCommand("scons")<CR>
+map <Leader>rt :call VimuxRunCommand("scons test")<CR>
 
 " Command-T
 let g:CommandTMaxHeight = 6
@@ -164,6 +168,10 @@ let g:ycm_confirm_extra_conf = 0 " Do not ask for confirmation
 autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
 autocmd FileType go set makeprg=go\ build
 autocmd FileType go set errorformat=%f:%l:%m
+" }}}
+
+" Programming languages: C++ {{{
+autocmd FileType cpp set makeprg=scons
 " }}}
 
 au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
