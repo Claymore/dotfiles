@@ -2,6 +2,7 @@
 set nocompatible
 
 " Core settings: Appearance {{{
+set splitright
 set updatetime=1000
 set lazyredraw
 set ttyfast
