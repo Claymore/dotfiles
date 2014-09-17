@@ -107,19 +107,10 @@ nmap <leader>m :make<CR>
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 
 let g:pathogen_disabled = []
-call add(g:pathogen_disabled, 'syntastic')
-call add(g:pathogen_disabled, 'YouCompleteMe')
-if !has('python')
-    call add(g:pathogen_disabled, 'UltiSnips')
-endif
 
 if !has('ruby')
     call add(g:pathogen_disabled, 'vimux')
     call add(g:pathogen_disabled, 'command-t')
-endif
-
-if version < 703 || !has('python') || !has('patch584')
-    call add(g:pathogen_disabled, 'YouCompleteMe')
 endif
 
 call pathogen#infect()
@@ -153,16 +144,6 @@ let g:CommandTMaxCachedDirectories = 4
 let g:CommandTMatchWindowAtTop = 1
 let g:CommandTCancelMap='<Esc>'
 
-" Syntastic
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['go', 'cpp'], 'passive_filetypes': [] }
-let g:syntastic_loc_list_height = 6
-
-" Fix Syntastic sign column colors
-highlight! link SyntasticErrorSign DiffDelete
-highlight! link SyntasticWarningSign DiffChange
-
-" YouCompleteMe
-let g:ycm_confirm_extra_conf = 0 " Do not ask for confirmation
 " }}}
 
 " Programming languages: Go {{{
