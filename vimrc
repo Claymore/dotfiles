@@ -1,229 +1,86 @@
-" vim:fdm=marker
 set nocompatible
 
-" Core settings: Appearance {{{
+set lazyredraw " Do not redraw screen while executing macros
+set ttyfast " My TTY is very fast
+
 set splitright
-set updatetime=1000
-set lazyredraw
-set ttyfast
-set number                      "Line numbers are good
-set showcmd                     "Show incomplete cmds down the bottom
-set showmode                    "Show current mode down the bottom
-set gcr=a:blinkon0              "Disable cursor blink
-set visualbell                  "No sounds
+set relativenumber
+set showcmd
+set showmode
+set laststatus=2 " Always show the status line
+set showtabline=0 " Hide the tab line
+set ruler
 
-syntax on " Turn syntax highlighting on
-
-set listchars=tab:▸\ ,eol:¬,trail:·
-set nowrap       "Don't wrap lines
-set linebreak    "Wrap lines at convenient points
-set laststatus=2 "always show the statusline
-
-if has("gui_running")
-    set guioptions-=m
-    set guioptions-=T
-    set guioptions-=r
-    set background=light
-else
-    set background=dark
-endif
-
-if has("win32")
-    set guifont=Consolas:h14:cRUSSIAN
-    language English_US
-    set langmenu=English_US
-endif
-" }}}
-
-" Core settings: Editor {{{
-set fileencoding=utf-8
-set encoding=utf-8
-set fileformats=unix,dos
-set backspace=indent,eol,start  "Allow backspace in insert mode
-set history=1000                "Store lots of :cmdline history
-set autoread                    "Reload files changed outside vim
-set hidden
-set viminfo='100,f1  "Save up to 100 marks, enable capital marks
-
-" Keep undo history across sessions, by storing in file.
-
-if !has("win32")
-    silent !mkdir ~/.vim/backups > /dev/null 2>&1
-    set undodir=~/.vim/backups
-    set undofile
-    set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
-else
-    set undodir=$HOME\vimfiles\backups
-    set undofile
-    set directory=$HOME\vimfiles\tmp,.
-    set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
-endif
-" }}}
-
-" Core settings: Identation {{{
-set autoindent
-set smartindent
-set smarttab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-set expandtab
-filetype plugin indent on
-" }}}
-
-" Core settings: Search {{{
-set incsearch        "Find the next match as we type the search
-set ignorecase
-set smartcase        "Case insensitive searches become sensitive with capitals
-set hlsearch         "Hilight searches by default
-" }}}
-
-" Core settings: Scrolling {{{
-set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set scrolloff=8 " Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
-" }}}
 
-" Macros {{{
-runtime! macros/matchit.vim
-" }}}
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
 
-" Custom mappings {{{
-let mapleader = "\<Space>"
-" Use CTRL-S for saving, also in Insert mode
-noremap <C-S>		:update<CR>
-vnoremap <C-S>		<C-C>:update<CR>
-inoremap <C-S>		<C-O>:update<CR>
-" Fugitive mappings
-nmap <leader>gs :Gstatus<CR>
-nmap <leader>gc :Gcommit<CR>
-nmap <leader>ga :Gwrite<CR>
-" A mapping for :make
-nmap <leader>m :make<CR>
-" }}}
+set listchars=tab:▸\ ,eol:¬,trail:·
+
+set gcr=a:blinkon0 " Disable blinking cursor
+set visualbell " Disable bell
+
+set wildmenu
+set autoread
+set encoding=utf-8
+set fileencoding=utf-8
+set fileformats=unix,dos
+set history=1000
+set nrformats-=octal
+set wildignore+=*.swp,*.zip,**/.git/*,**/build/*,*.aux,*.pdf,*.toc
+set complete-=i
 
 " Plugins {{{
 " Use pathogen to install vim plugins
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-
 let g:pathogen_disabled = []
-call add(g:pathogen_disabled, 'syntastic')
-call add(g:pathogen_disabled, 'YouCompleteMe')
-if !has('python')
-    call add(g:pathogen_disabled, 'UltiSnips')
-endif
 
-if !has('ruby')
-    call add(g:pathogen_disabled, 'vimux')
-    call add(g:pathogen_disabled, 'command-t')
-endif
-
-if version < 703 || !has('python') || !has('patch584')
-    call add(g:pathogen_disabled, 'YouCompleteMe')
-endif
-
-call pathogen#infect()
-call pathogen#helptags()
+execute pathogen#infect()
 
 " Color scheme
 let g:solarized_termcolors=&t_Co
 let g:solarized_termtrans=1
-colorscheme solarized
 
-" Powerline
-if !has("win32")
-    let g:Powerline_symbols='fancy'
-endif
-let g:Powerline_theme='skwp'
-let g:Powerline_colorscheme='skwp'
-
-" Vimux
-map <Leader>rp :VimuxPromptCommand<CR>
-map <Leader>rl :VimuxRunLastCommand<CR>
-map <Leader>ri :VimuxInspectRunner<CR>
-map <Leader>rx :VimuxClosePanes<CR>
-map <Leader>rq :VimuxCloseRunner<CR>
-map <Leader>rs :VimuxInterruptRunner<CR>
-map <Leader>rm :call VimuxRunCommand("scons")<CR>
-map <Leader>rt :call VimuxRunCommand("scons test")<CR>
+" python-syntax
+let python_highlight_all = 1
 
 " Command-T
 let g:CommandTMaxHeight = 6
 let g:CommandTMaxCachedDirectories = 4
 let g:CommandTMatchWindowAtTop = 1
 let g:CommandTCancelMap='<Esc>'
-
-" Syntastic
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['go', 'cpp'], 'passive_filetypes': [] }
-let g:syntastic_loc_list_height = 6
-
-" Fix Syntastic sign column colors
-highlight! link SyntasticErrorSign DiffDelete
-highlight! link SyntasticWarningSign DiffChange
-
-" YouCompleteMe
-let g:ycm_confirm_extra_conf = 0 " Do not ask for confirmation
 " }}}
 
-" Programming languages: Go {{{
-autocmd FileType go setlocal ts=4 sts=4 sw=4 noexpandtab
-autocmd FileType go set makeprg=go\ build
-autocmd FileType go set errorformat=%f:%l:%m
+syntax on
+filetype plugin indent on
+colorscheme solarized
+
+" Mappings {{{
+let mapleader = "\<Space>"
+
+nmap <silent> <leader>q :quit<CR>
+nmap <leader>; :
+nmap <silent> <leader>s :update<CR>
+nmap <silent> <leader>k :bdelete!<CR>
+
+" vim-fugitive
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gc :Gcommit<CR>
+
+" vim-counterpoint
+nmap ]c :CounterpointNext<CR>
+nmap [c :CounterpointPrevious<CR>
+nmap <leader>c :CounterpointNext! vsplit<CR>
 " }}}
 
-" Programming languages: C++ {{{
-autocmd FileType cpp set makeprg=scons
-" }}}
-
-au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
-
-" {{{ Hard Mode
-set mouse=""
-nnoremap <PageUp> <NOP>
-nnoremap <PageDown> <NOP>
-inoremap <PageUp> <NOP>
-inoremap <PageDown> <NOP>
-vnoremap <PageUp> <NOP>
-vnoremap <PageDown> <NOP>
-noremap <MiddleMouse> <NOP>
-noremap <MouseUp> <NOP>
-noremap <MouseDown> <NOP>
-nnoremap <UP> <NOP>
-nnoremap <DOWN> <NOP>
-nnoremap <LEFT> <NOP>
-nnoremap <RIGHT> <NOP>
-inoremap <UP> <NOP>
-inoremap <DOWN> <NOP>
-inoremap <LEFT> <NOP>
-inoremap <RIGHT> <NOP>
-vnoremap <UP> <NOP>
-vnoremap <DOWN> <NOP>
-vnoremap <LEFT> <NOP>
-vnoremap <RIGHT> <NOP>
-
-" No repetitive HJKL {
-" Author: Barry Arthur <bairui @ #vim / freenode>
-let g:cursor_moving = 0
-
-function! TrapMovementKeys(key)
-    augroup CursorMoving
-        autocmd!
-        autocmd CursorMoved * let g:cursor_moving += 1
-    augroup END
-    if g:cursor_moving <= 2
-        return a:key
-    else
-        return ''
-    endif
-endfunction
-
-nnoremap <expr> h TrapMovementKeys('h')
-nnoremap <expr> j TrapMovementKeys('j')
-nnoremap <expr> k TrapMovementKeys('k')
-nnoremap <expr> l TrapMovementKeys('l')
-
-augroup CursorMovingOff
+" Programming languages {{{
+augroup configgroup
     autocmd!
-    autocmd CursorHold * let g:cursor_moving = 0
+    autocmd BufNewFile,BufRead SConstruct,SConscript,debscons,rpmscons,tgzscons,txzscons,*.scons set filetype=python
 augroup END
 " }}}

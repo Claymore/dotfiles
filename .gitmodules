@@ -4,9 +4,6 @@
 [submodule "dircolors"]
 	path = dircolors
 	url = https://github.com/seebi/dircolors-solarized
-[submodule "vim/bundle/vim-powerline"]
-	path = vim/bundle/vim-powerline
-	url = https://github.com/skwp/vim-powerline.git
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
 	url = git://github.com/skwp/vim-colors-solarized
@@ -31,24 +28,9 @@
 [submodule "vim/bundle/vim-golang"]
 	path = vim/bundle/vim-golang
 	url = https://github.com/jnwhiteh/vim-golang.git
-[submodule "vim/bundle/UltiSnips"]
-	path = vim/bundle/UltiSnips
-	url = https://github.com/vim-scripts/UltiSnips.git
-[submodule "vim/bundle/vimux"]
-	path = vim/bundle/vimux
-	url = https://github.com/benmills/vimux.git
 [submodule "vim/bundle/ag.vim"]
 	path = vim/bundle/ag.vim
 	url = https://github.com/epmatsw/ag.vim.git
-[submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/bundle/YouCompleteMe"]
-	path = vim/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
-[submodule "vim/bundle/vim-ref"]
-	path = vim/bundle/vim-ref
-	url = https://github.com/thinca/vim-ref.git
 [submodule "irssi/irssi-colors-solarized"]
 	path = irssi/irssi-colors-solarized
 	url = git://github.com/huyz/irssi-colors-solarized.git
@@ -58,3 +40,42 @@
 [submodule "vim/bundle/golden-ratio"]
 	path = vim/bundle/golden-ratio
 	url = https://github.com/roman/golden-ratio.git
+[submodule "vim/bundle/vim-flagship"]
+	path = vim/bundle/vim-flagship
+	url = git://github.com/tpope/vim-flagship.git
+[submodule "vim/bundle/syntax"]
+	path = vim/bundle/syntax
+	url = https://github.com/octol/vim-cpp-enhanced-highlight.git
+[submodule "vim/bundle/vim-commentary"]
+	path = vim/bundle/vim-commentary
+	url = git://github.com/tpope/vim-commentary.git
+[submodule "vim/bundle/vim-repeat"]
+	path = vim/bundle/vim-repeat
+	url = git://github.com/tpope/vim-repeat.git
+[submodule "vim/bundle/vim-sort-motion"]
+	path = vim/bundle/vim-sort-motion
+	url = https://github.com/christoomey/vim-sort-motion.git
+[submodule "vim/bundle/vim-textobj-indent"]
+	path = vim/bundle/vim-textobj-indent
+	url = https://github.com/kana/vim-textobj-indent.git
+[submodule "vim/bundle/vim-textobj-entire"]
+	path = vim/bundle/vim-textobj-entire
+	url = https://github.com/kana/vim-textobj-entire.git
+[submodule "vim/bundle/vim-textobj-line"]
+	path = vim/bundle/vim-textobj-line
+	url = https://github.com/kana/vim-textobj-line.git
+[submodule "vim/bundle/vim-textobj-user"]
+	path = vim/bundle/vim-textobj-user
+	url = https://github.com/kana/vim-textobj-user.git
+[submodule "vim/bundle/python-syntax"]
+	path = vim/bundle/python-syntax
+	url = https://github.com/hdima/python-syntax.git
+[submodule "vim/bundle/vim-trailing-whitespace"]
+	path = vim/bundle/vim-trailing-whitespace
+	url = https://github.com/bronson/vim-trailing-whitespace.git
+[submodule "vim/bundle/vim-counterpoint"]
+	path = vim/bundle/vim-counterpoint
+	url = https://github.com/jpetrie/vim-counterpoint
+[submodule "vim/bundle/vim-python-pep8-indent"]
+	path = vim/bundle/vim-python-pep8-indent
+	url = https://github.com/hynek/vim-python-pep8-indent.git

@@ -1,3 +1,5 @@
 .*.sw[a-z]
 tags
 tags-ja
+.idea
+CMakeLists.txt

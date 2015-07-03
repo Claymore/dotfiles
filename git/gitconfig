@@ -18,14 +18,9 @@
     changelog = log --pretty=format:\" * %s\"
 [branch]
 	autosetuprebase = always
-[merge]
-	tool = extMerge
-[mergetool "extMerge"]
-	cmd = p4merge.sh \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
-	trustExitCode = false
 [push]
-    # 'git push' will push the current branch to its tracking branch
-    # the usual default is to push all branches
-    default = tracking
+    default = simple
 [core]
 	excludesfile = ~/.gitignore
+[include]
+    path = ~/.gitauthor
