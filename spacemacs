@@ -24,11 +24,11 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ansible
-     (auto-completion :variables
-                      auto-completion-return-key-behavior nil
-                      auto-completion-tab-key-behavior 'cycle
-                      :disabled-for
-                      org)
+     ;; (auto-completion :variables
+     ;;                  auto-completion-return-key-behavior nil
+     ;;                  auto-completion-tab-key-behavior 'cycle
+     ;;                  :disabled-for
+     ;;                  org)
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t)
@@ -50,6 +50,7 @@ values."
      ruby
      semantic
      shell-scripts
+     php
      sql
      github
      (syntax-checking :variables
@@ -290,14 +291,20 @@ layers configuration. You are free to put any user code."
    ;; evil
    evil-want-fine-undo nil
 
+   ;; windows
+   split-height-threshold 80
+   split-width-threshold 160
+
    ;; flycheck-google-lint
    flycheck-c/c++-googlelint-executable "/Users/claymore/bin/google-cpplint")
 
   (spacemacs/set-leader-keys "of" 'helm-projectile-find-file-dwim)
   (spacemacs/set-leader-keys "oc" 'org-capture)
+  (spacemacs/set-leader-keys "oa" 'org-agenda)
   (evil-define-key 'normal projectile-mode-map
     "]c" 'projectile-find-other-file
     "[c" 'projectile-find-other-file)
+
   (add-to-list 'auto-mode-alist '("\\.gsoap" . c++-mode))
   (add-to-list 'interpreter-mode-alist '("scons" . python-mode) )
 
@@ -339,7 +346,7 @@ layers configuration. You are free to put any user code."
      org-log-redeadline (quote time)
      org-log-reschedule (quote time)
      org-agenda-text-search-extra-files '(agenda-archives)
-     org-refile-targets '(("network-solutions.org" :maxlevel . 1) ("personal.org" :maxlevel . 1))
+     org-refile-targets '(("work.org" :maxlevel . 1) ("personal.org" :maxlevel . 1))
      org-capture-templates
       '(("t" "A new task" entry (file+headline "refile.org" "Tasks")
          "* TODO %?
