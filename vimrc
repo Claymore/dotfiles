@@ -65,7 +65,7 @@ let mapleader = "\<Space>"
 
 nmap <silent> <leader>q :quit<CR>
 nmap <leader>; :
-nmap <silent> <leader>s :update<CR>
+nmap <silent> <leader>fs :update<CR>
 nmap <silent> <leader>k :bdelete!<CR>
 
 " vim-fugitive
